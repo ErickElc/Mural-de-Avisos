@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mural de Avisos</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="title">
+            <h1 id="title">Mural de Avisos</h1>
+        </div>
+        <form action="" method="post" class="container_form" >
+            <h2>Escreva no mural:</h2>
+            <div>
+                <input type="text" name="" placeholder="Titulo" id="input-title" required>
+            </div>
+            <div>
+                <textarea name="" id="textarea-input" cols="30" rows="10" placeholder="Descrição" required></textarea>
+            </div>
+            <div>
+                <button id="button" type="button" onclick="NewPost()">Enviar</button>
+            </div>
+        </form>
+        <div class="mural">
+            <h2 id="mural">Mural</h2>
+            <div class="posts" >
+                <div id=''class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Titulo:</h5>
+                    </div>
+                    <div class="card-body"> 
+                        <div class="card-text">
+                            Descrição:
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

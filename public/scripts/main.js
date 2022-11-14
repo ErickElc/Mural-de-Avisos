@@ -51,6 +51,7 @@ function updatePosts(){
                         <div class="card-text">
                             ${post.description}
                         </div>
+                        <Button  onclick="deletePost('${post.id}')">Delete</Button>
                     </div>
                 </div>`;
             
@@ -60,4 +61,8 @@ function updatePosts(){
 
     })
 }
-
+function deletePost(id){
+    fetch(`http://localhost:3000/api/remover/${id}`, {method: 'DELETE'}).then((res) => {
+        window.location.reload();
+    })
+}

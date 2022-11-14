@@ -16,16 +16,16 @@ router.post('/new', express.json(),(req, res)=>{
     let title = req.body.title;
     let description = req.body.description;
     postModel.newPost(title, description)
-    if(title !== undefined & description !== undefined){
-        res.status(201);
-        res.send(`Novo Post Adicionado\n${title}\n${description}`)
+    if(title !== '' & description !== ''){
+        return res.status(201).send(`Novo Post Adicionado\n${title}\n${description}`)
     }
-    res.status(500);
-    res.send(`Não foi possível inserir dados`)
 })
-router.delete('/remover/:id', (req, res)=>{
+router.delete('/remover/:id', async(req, res)=>{
     let id  = req.params.id;
-    (postModel.deletePost(id) === false) ? res.send(`O elemento ${id} não existe então não pode ser apagado`) : res.send(`O elemento ${id} foi apagado`);
-
+    const reque =  postModel.deletePost(id)
+    if(reque){
+        return res.status(200).send(`O elemento foi apagado`)
+    }
+    res.status(500).send(`O elemento  não existe então não pode ser apagado`)
 })
 module.exports = router;
